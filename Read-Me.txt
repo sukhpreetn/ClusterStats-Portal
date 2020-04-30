@@ -1,0 +1,46 @@
+Note :- working app is deployed at http://parikshana.pythonanywhere.com/accounts/login/
+logins available
+admin/admin
+readonly/readonly
+
+1) Create a Virtual Environment
+2) Download the app  'mobis.zip'
+3) uncompress above
+4) pip install -r requirements.
+4) Elastic Search :-
+	#download for mac
+	curl https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.6.1-darwin-x86_64.tar.gz -o elasticsearch-7.6.1-darwin-x86_64.tar.gz 
+
+	#expand
+	tar -xzf elasticsearch-7.6.1-darwin-x86_64.tar.gz
+
+	#on mac with catalina otherwise not required
+	xattr -d -r com.apple.quarantine elasticsearch-7.6.1-darwin-x86_64
+
+	#run
+	bin/elasticsearch
+
+	#check if elasticsearch is running
+	curl http://localhost:9200/
+
+5) python3 manage.py runserver 
+    to have elastic search  run with Django changes made in settings.py
+
+    add below in INSTALLED_APPS
+     'django_elasticsearch_dsl',
+
+
+	    ELASTICSEARCH_DSL = {
+	    'default': {
+	        'hosts': 'localhost:9200'
+	    },
+	}
+
+5) run the app using
+	http://127.0.0.1:8000/accounts/login/
+
+
+Screen shots of app-screens, elasticsearch local setup and , code snippet is attached as 'AppleAssignment.pdf'
+
+
+
